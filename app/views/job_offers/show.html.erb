@@ -1,4 +1,10 @@
 <h1><%= @job_offer.title %></h1>
 <p><%= @job_offer.description %></p>
 <p>Empresa: <%= @job_offer.user.email %></p>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %>">
+    <%= value %>
+  </div>
+<% end %>
+
 <%= link_to 'Volver', job_offers_path, class: "btn btn-primary" %>

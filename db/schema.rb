@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_18_032408) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_18_062611) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_032408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_job_offers_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "message"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -57,5 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_18_032408) do
   add_foreign_key "job_applications", "job_offers"
   add_foreign_key "job_applications", "users"
   add_foreign_key "job_offers", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "profiles", "users"
 end

@@ -3,10 +3,13 @@ class JobOffersController < ApplicationController
   
   def index
     @job_offers = JobOffer.all
+    @job_offer = JobOffer.new # o cualquier lógica adicional necesaria para definir @job_offer
   end
+  
 
   def show
     @job_offer = JobOffer.find(params[:id])
+    @job_applications = @job_offer.job_applications
   end
 
   def new

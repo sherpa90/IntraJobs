@@ -1,0 +1,21 @@
+<!-- app/views/notifications/index.html.erb -->
+<h1>Notificaciones</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Mensaje</th>
+      <th>Leído</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.created_at %></td>
+        <td><%= notification.message %></td>
+        <td><%= notification.read ? 'Sí' : 'No' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

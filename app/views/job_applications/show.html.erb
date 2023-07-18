@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Mis Postulaciones</h1>
+  
+    <% current_user.job_applications.each do |job_application| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Oferta Laboral: <%= job_application.job_offer.title %></h5>
+          <p class="card-text"><strong>Fecha de Postulación:</strong> <%= job_application.created_at %></p>
+          <p class="card-text"><strong>Carta de Presentación:</strong></p>
+          <p class="card-text"><%= job_application.cover_letter %></p>
+        </div>
+      </div>
+    <% end %>
+  
+    <p><%= link_to "Volver", user_job_applications_path(current_user), class: "btn btn-primary" %></p>
+
+  </div>
+  
