@@ -1,0 +1,32 @@
+<!-- app/views/devise/registrations/edit.html.erb -->
+<div class="container">
+  <h1>Editar cuenta</h1>
+
+  <%= form_with(model: resource, url: registration_path(resource_name), method: :put) do |form| %>
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :password %>
+      <%= form.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Dejar en blanco para mantener la contraseña actual" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :current_password, "Contraseña actual" %>
+      <%= form.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Actualizar cuenta", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
