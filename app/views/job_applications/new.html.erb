@@ -1,18 +1,15 @@
 <!-- app/views/job_applications/new.html.erb -->
 <div class="container">
-    <h1>Postular a una oferta laboral</h1>
-  
-    <%= form_with(model: @job_application, url: job_applications_path) do |form| %>
-      <%= form.hidden_field :job_offer_id, value: @job_offer.id %>
-  
-      <div class="form-group">
-        <%= form.label :cover_letter, "Carta de presentación" %>
-        <%= form.text_area :cover_letter, class: "form-control" %>
-      </div>
-  
-      <div class="form-group">
-        <%= form.submit "Enviar solicitud", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-  
+  <h1>Postular a Oferta Laboral</h1>
+
+  <%= form_with(model: @job_application, url: job_offer_job_applications_path(@job_offer), class: "form") do |form| %>
+    <div class="form-group">
+      <%= form.label :cover_letter %>
+      <%= form.text_area :cover_letter, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Postular", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

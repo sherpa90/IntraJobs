@@ -1,3 +1,4 @@
+<!-- app/views/job_offers/index.html.erb -->
 <h1>Ofertas Laborales</h1>
 
 <table class="table">
@@ -15,10 +16,13 @@
         <td><%= job_offer.title %></td>
         <td><%= job_offer.description %></td>
         <td><%= job_offer.user.email %></td>
-        <td><%= link_to 'Ver', job_offer, class: "btn btn-primary" %></td>
+        <td>
+          <%= link_to 'Ver', job_offer, class: "btn btn-primary" %>
+          <% if user_signed_in? && !current_user.admin? %>
+            <%= link_to "Postular", new_job_offer_job_application_path(job_offer), class: "btn btn-primary" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
