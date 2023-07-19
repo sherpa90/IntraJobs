@@ -1,18 +1,26 @@
 <div class="container">
-    <h1>Mis Postulaciones</h1>
-  
-    <% current_user.job_applications.each do |job_application| %>
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">Oferta Laboral: <%= job_application.job_offer.title %></h5>
-          <p class="card-text"><strong>Fecha de Postulación:</strong> <%= job_application.created_at %></p>
-          <p class="card-text"><strong>Carta de Presentación:</strong></p>
-          <p class="card-text"><%= job_application.cover_letter %></p>
+  <h1>Mis Postulaciones</h1>
+
+  <% current_user.job_applications.each do |job_application| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <h5 class="card-title">Oferta Laboral: <%= job_application.job_offer.title %></h5>
+            <p class="card-text"><strong>Fecha de Postulación:</strong> <%= job_application.created_at %></p>
+            <p class="card-text"><strong>Carta de Presentación:</strong></p>
+            <p class="card-text"><%= job_application.cover_letter %></p>
+          </div>
+          <div class="col-md-4">
+            <% candidate = job_application.user %>
+            <% if candidate.photo.attached? %>
+              <%= image_tag candidate.photo.variant(resize: "100x100"), class: "rounded-circle", alt: "Avatar" %>
+            <% end %>
+          </div>
         </div>
       </div>
-    <% end %>
-  
-    <p><%= link_to "Volver", user_job_applications_path(current_user), class: "btn btn-primary" %></p>
+    </div>
+  <% end %>
 
-  </div>
-  
+  <p><%= link_to "Volver", user_job_applications_path(current_user), class: "btn btn-primary" %></p>
+</div>

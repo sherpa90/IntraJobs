@@ -2,7 +2,7 @@ class JobOffersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @job_offers = JobOffer.all
+    @job_offers = JobOffer.includes(:user).all
     @job_offer = JobOffer.new # o cualquier lógica adicional necesaria para definir @job_offer
   end
   

@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :job_applications
   has_many :job_offers, dependent: :destroy
+  has_one_attached :photo
 
   def admin?
     admin

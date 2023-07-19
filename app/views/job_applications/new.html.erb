@@ -1,8 +1,10 @@
 <div class="container">
-  <h1>Postular a Oferta Laboral</h1>
+  <div class="text-center">
+    <h1>Postular a Oferta Laboral</h1>
 
-  <%= form_with(model: @job_application, url: job_offer_job_applications_path(@job_offer), class: "form") do |form| %>
-    <%= form.hidden_field :job_offer_id %>
-    <%= form.submit "Postular", class: "btn btn-primary" %>
-  <% end %>
+    <%= form_with(model: @job_application, url: job_offer_job_applications_path(@job_offer), class: "form") do |form| %>
+      <%= form.hidden_field :job_offer_id %>
+      <%= form.submit "Postular", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>

@@ -15,8 +15,8 @@
               <a class="nav-link" href="<%= new_job_offer_path %>">Crear</a>
             </li>
             <li class="nav-item">
-              <%= link_to "Notificaciones", notifications_path, class: "nav-link" %>
-            </li>
+            <%= link_to "Todas las Postulaciones", job_applications_path, class: "nav-link" %>
+          </li>
           <% else %>
           <%= link_to "Mis Postulaciones", user_job_applications_path(current_user), class: "nav-link" %>
           

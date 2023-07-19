@@ -11,7 +11,11 @@ class JobApplicationsController < ApplicationController
   end
   
   def index
-    @job_applications = current_user.job_applications
+    if current_user.admin?
+      @job_applications = JobApplication.all
+    else
+      @job_applications = current_user.job_applications
+    end
   end
 
 
