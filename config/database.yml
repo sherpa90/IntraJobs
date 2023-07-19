@@ -82,6 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: IntraJobs_production
-  username: IntraJobs
-  password: <%= ENV["INTRAJOBS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
